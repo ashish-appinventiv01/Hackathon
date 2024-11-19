@@ -1,0 +1,31 @@
+.inputBoxes {
+    color: black;
+    background-color: rgb(241, 245, 245);
+    height: 2rem /* 30/16 */;
+    width: 18.75rem /* 300/16 */;
+    border-radius: 1rem /* 20/16 */;
+    font-size: 1rem /* 16/16 */;
+    padding: .9375rem /* 15/16 */;
+}
+.submit-button{
+    color: black;
+    border-radius: 2 rem;
+    width: 9rem /* 150/16 */;
+    height: 2rem;
+}
+.parent-landing-page{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem /* 30/16 */;
+}
+.list-line{
+    color: rgb(218, 166, 166);
+    gap: 15rem /* 20/16 */;
+    width: 100%;
+    /* background-color: aliceblue; */
+}
+.spanblock{
+    margin:  0px 50px 0px 50px;
+    width: 30%;
+    /* background-color: aquamarine; */
+}
