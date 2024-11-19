@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styling/Styling.css";
 
+import Select from "react-select";
+
 const LandingPage = () => {
   const [input, setInput] = useState("");
   const [expenseType, setExpenseType] = useState("");
@@ -9,13 +11,14 @@ const LandingPage = () => {
   const [search, setSearch] = useState(0);
   const [searchList, setSearchList] = useState([]);
   const [searchCheck, setSearchCheck] = useState(false);
-
+  const [selectedType, setSelectedType] = useState(null);
   const handleExpenses = () => {
     if (input !== "" && expenseType !== "") {
       const newObject = {
         input: parseFloat(input),
         expenseType,
         date: new Date().toLocaleDateString(),
+        selectedType,
       };
       // console.log(typeof(input), "<<<<<<<<<CHECK>>>>>>>>")
 
@@ -50,7 +53,10 @@ const LandingPage = () => {
     setContainer(updatedContainer);
     setTotalExpense((prevTotal) => prevTotal - deletedExpense.input);
   };
-
+  const options = [
+    { value: "Expenditure", label: "Expenditure" },
+    { value: "Earning", label: "Earning" },
+  ];
   const handleSearch = () => {
     const searchValue = container.filter((entity, id) => entity.input < search);
     // console.log("Checking filter value",searchValue);
@@ -68,10 +74,18 @@ const LandingPage = () => {
       />
       <input
         type="number"
-        placeholder="Enter your Monthly Expense"
+        placeholder="Enter your Expense/Income"
         className="inputBoxes"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+      />
+      <Select
+        style={{ color: "white" }}
+        onChange={(e) => {
+        //   console.log("hjvchj", e.value);
+          setSelectedType(e.value);
+        }}
+        options={options}
       />
       <button onClick={handleExpenses} className="submit-button">
         {" "}
@@ -84,6 +98,7 @@ const LandingPage = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+       
       <button className="submit-button" onClick={() => handleSearch()}> Enter filter Amount </button> 
 
       <div className="LandingPage-display">
@@ -100,6 +115,7 @@ const LandingPage = () => {
                         <span className="spanblock">{entity.input}</span>
                         <span className="spanblock">{entity.expenseType}</span>
                         <span className="spanblock">{entity.date}</span>
+                        <span className="spanblock">{entity.selectedType}</span>
                         <button
                           className="submit-button"
                           onClick={() => handleDelete(id)}
@@ -148,6 +164,7 @@ const LandingPage = () => {
       <div>
         <strong>Total Expenditure: {totalExpense}</strong>
       </div>
+      {/* <Summary/> */}
     </div>
   );
 };

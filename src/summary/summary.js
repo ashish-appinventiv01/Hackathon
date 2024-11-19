@@ -6,16 +6,18 @@ const Summary = (container) => {
 
     // useEffect(()=>{
     //     const calculate =( ) =>{
-    //         // container.container.filter((date,id)= >{})
-    //         const dateStr = ""
-    //         const obj = new Date(dateStr)
-    //         const day = obj.getDate()
+    //         container.container.filter( (entity, id)={  
+    //             entity.
+
            
+    //      } )
     //     }
-    //     calculate(container.container);
+    //     calculate();
     
     // },[])
-   
+    // const dateStr = entity.date
+    //         const obj = new Date(dateStr)
+    //         const day = obj.getDate()
 
   const [selectedTab, setSelectedTab] = useState(null);
   const [selectedType, setSelectedType] = useState(null);
